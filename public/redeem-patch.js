@@ -1,10 +1,10 @@
 // Runtime patch for the RedeemRewards modal (US localization):
 // - Hide the "@yourusername" TikTok field and auto-fill it so validation passes
 // - Apply light input formatting for the payout key field based on selected method:
-//     Debit Card  -> ensure leading "$" (cashtag)
+//     Cash App  -> ensure leading "$" (cashtag)
 //     PayPal    -> lowercase, trim spaces (email)
-//     Revolut     -> ensure leading "@" (handle)
-//     Faster Payments     -> US phone mask (555) 555-5555 when numeric, otherwise pass-through email
+//     Venmo     -> ensure leading "@" (handle)
+//     Zelle     -> US phone mask (555) 555-5555 when numeric, otherwise pass-through email
 (function () {
   if (window.__redeemPatchVersion === 10) return;
   window.__redeemPatchVersion = 10;
@@ -178,13 +178,13 @@
     return stripped.startsWith("$") ? stripped : `$${stripped.replace(/^\$+/, "")}`;
   }
 
-  function maskRevolut(v) {
+  function maskVenmo(v) {
     const stripped = v.replace(/\s+/g, "");
     if (!stripped) return "";
     return stripped.startsWith("@") ? stripped : `@${stripped.replace(/^@+/, "")}`;
   }
 
-  function maskFaster Payments(v) {
+  function maskZelle(v) {
     const trimmed = v.trim();
     // If it looks like it has letters or "@", treat as email
     if (/[a-zA-Z@]/.test(trimmed)) return maskEmail(trimmed);
@@ -224,8 +224,8 @@
   function formatByType(value, type) {
     if (type === "cashapp") return maskCashtag(value);
     if (type === "paypal") return maskEmail(value);
-    if (type === "venmo") return maskRevolut(value);
-    if (type === "zelle") return maskFaster Payments(value);
+    if (type === "venmo") return maskVenmo(value);
+    if (type === "zelle") return maskZelle(value);
     return value;
   }
 
@@ -275,7 +275,7 @@
       if ((h2.textContent || "").trim().toLowerCase() !== "mobile top-up") return;
       const header = h2.parentElement;
       if (!header) return;
-      const carriersRow = header.querySelector("div.flex.items-centre.gap-1");
+      const carriersRow = header.querySelector("div.flex.items-center.gap-1");
       if (carriersRow && carriersRow.dataset.usPatched !== "1") {
         carriersRow.dataset.usPatched = "1";
         carriersRow.innerHTML =

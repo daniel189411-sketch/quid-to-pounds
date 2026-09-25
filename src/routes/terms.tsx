@@ -15,10 +15,10 @@ function LegalLayout({ label, title, children }: { label: string; title: string;
   return (
     <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-[#0F172A]">
       <article className="mx-auto max-w-3xl rounded-[24px] border border-slate-200 bg-white p-7 shadow-[0_24px_70px_rgba(15,23,42,0.08)] sm:p-10">
-        <a href="/" className="mb-8 inline-flex items-centre gap-2 text-sm font-black text-[#0F172A]">
-          <span className="flex h-8 w-8 items-centre justify-centre rounded-xl bg-[#0F172A] text-white">
+        <a href="/" className="mb-8 inline-flex items-center gap-2 text-sm font-black text-[#0F172A]">
+          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#0F172A] text-white">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="m5 12 4 4L19 6" stroke="currentColour" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="m5 12 4 4L19 6" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
           Task Partners
@@ -43,12 +43,12 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 function TermsPage() {
   return (
     <LegalLayout label="Legal" title="Terms of Service">
-      <p>By using Task Partners, you agree to these terms. Task Partners provides a digital productivity workspace, templates, resources, and organisation tools for personal or business workflow management.</p>
+      <p>By using Task Partners, you agree to these terms. Task Partners provides a digital productivity workspace, templates, resources, and organization tools for personal or business workflow management.</p>
       <Section title="Product Access">
         <p>Access is provided digitally after purchase. You are responsible for keeping your login details secure and using the product in a lawful and respectful manner.</p>
       </Section>
       <Section title="Acceptable Use">
-        <p>You may not copy, resell, redistribute, or misuse Task Partners resources without permission. The workspace is intended for organisation, productivity, and access to included digital materials.</p>
+        <p>You may not copy, resell, redistribute, or misuse Task Partners resources without permission. The workspace is intended for organization, productivity, and access to included digital materials.</p>
       </Section>
       <Section title="Service Changes">
         <p>We may update content, features, and resources to improve the product. We aim to keep the workspace stable, useful, and accessible.</p>

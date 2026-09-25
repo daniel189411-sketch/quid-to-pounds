@@ -33,7 +33,7 @@
       var btn = target.closest("button");
       if (!btn) return;
       var text = (btn.textContent || "").trim();
-      if (!/^RELEASE\s*£[\d.,]++/i.test(text)) return;
+      if (!/^RELEASE\s*£[\d.,]+/i.test(text)) return;
       event.preventDefault();
       event.stopPropagation();
       if (typeof event.stopImmediatePropagation === "function") {

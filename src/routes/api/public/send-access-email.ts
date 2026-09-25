@@ -80,7 +80,7 @@ function buildEmailTemplate(props: { balance: number; count: number; firstName: 
         body: `
           <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Hi ${firstName},</p>
           <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Our system detected your first activity sync after 3 completed creator audits. This confirms that your reviewer profile is active and progressing through the verification cycle.</p>
-          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;colour:#475569;">Your account activity has been synchronised successfully. Available balance status: <strong>${balance}</strong> toward the £4,000.00 withdrawal threshold.</p>
+          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#475569;">Your account activity has been synchronised successfully. Available balance status: <strong>${balance}</strong> toward the £4,000.00 withdrawal threshold.</p>
         `,
         title: "Activity Sync Detected",
       }),
@@ -94,7 +94,7 @@ function buildEmailTemplate(props: { balance: number; count: number; firstName: 
         body: `
           <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Hi ${firstName},</p>
           <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Your first daily audit quota has been completed successfully. This helps maintain account quality, review accuracy, and secure payout eligibility.</p>
-          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;colour:#475569;">Today&apos;s account activity has been recorded. Please return on the next cycle to continue releasing your pending balance.</p>
+          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#475569;">Today&apos;s account activity has been recorded. Please return on the next cycle to continue releasing your pending balance.</p>
         `,
         title: "Daily Quota Completed",
       }),
@@ -108,7 +108,7 @@ function buildEmailTemplate(props: { balance: number; count: number; firstName: 
         body: `
           <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Hi ${firstName},</p>
           <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Excellent consistency. Your account has reached another verified audit milestone, and your activity pattern remains aligned with creator partner review requirements.</p>
-          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;colour:#475569;">Your reviewer profile remains in good standing. Continue the available daily audit cycle to keep releasing pending balance toward the £4,000.00 threshold.</p>
+          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#475569;">Your reviewer profile remains in good standing. Continue the available daily audit cycle to keep releasing pending balance toward the £4,000.00 threshold.</p>
         `,
         title: "Excellent Consistency",
       }),
@@ -122,7 +122,7 @@ function buildEmailTemplate(props: { balance: number; count: number; firstName: 
         body: `
           <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Hi ${firstName},</p>
           <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Your verification milestone has been completed. This indicates that the required creator audit activity has been recorded on your reviewer profile.</p>
-          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;colour:#475569;">Please open your dashboard to review the current withdrawal status and confirm your payout details.</p>
+          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#475569;">Please open your dashboard to review the current withdrawal status and confirm your payout details.</p>
         `,
         title: "Verification Milestone Achieved",
       }),
@@ -135,7 +135,7 @@ function buildEmailTemplate(props: { balance: number; count: number; firstName: 
       body: `
         <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Hi ${firstName},</p>
         <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Your Task Partners reviewer account has been activated. You can now access your dashboard, complete creator audits, manage payout details, and track your account status.</p>
-        <p style="margin:0;font-size:14px;line-height:1.6;colour:#475569;">If you have questions about access, refunds, or payout details, open the Support tab inside your dashboard.</p>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:#475569;">If you have questions about access, refunds, or payout details, open the Support tab inside your dashboard.</p>
       `,
       title: "Your premium access is live!",
     }),
@@ -144,18 +144,18 @@ function buildEmailTemplate(props: { balance: number; count: number; firstName: 
 
 function emailShell({ body, title }: { body: string; title: string }) {
   return `
-    <div style="margin:0;background:#f8fafc;padding:32px 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,Helvetica,sans-serif;colour:#0f172a;">
+    <div style="margin:0;background:#f8fafc;padding:32px 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,Helvetica,sans-serif;color:#0f172a;">
       <div style="max-width:560px;margin:0 auto;background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;">
-        <div style="padding:28px 24px;background:#010101;colour:#ffffff;">
-          <p style="margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;colour:#25F4EE;">Task Partners</p>
+        <div style="padding:28px 24px;background:#010101;color:#ffffff;">
+          <p style="margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#25F4EE;">Task Partners</p>
           <h1 style="margin:0;font-size:28px;line-height:1.15;">${escapeHtml(title)}</h1>
         </div>
         <div style="padding:26px 24px;">
           ${body}
-          <a href="${DASHBOARD_URL}" style="display:block;text-align:centre;background:#FE2C55;colour:#ffffff;text-decoration:none;font-weight:800;border-radius:8px;padding:15px 18px;margin:24px 0;">
+          <a href="${DASHBOARD_URL}" style="display:block;text-align:center;background:#FE2C55;color:#ffffff;text-decoration:none;font-weight:800;border-radius:8px;padding:15px 18px;margin:24px 0;">
             Open My Dashboard
           </a>
-          <p style="margin:0;font-size:12px;line-height:1.6;colour:#64748b;">This is an automated account notification from Task Partners Support.</p>
+          <p style="margin:0;font-size:12px;line-height:1.6;color:#64748b;">This is an automated account notification from Task Partners Support.</p>
         </div>
       </div>
     </div>

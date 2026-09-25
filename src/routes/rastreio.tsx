@@ -81,9 +81,9 @@ function RastreioPage() {
   const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0b1220", colour: "#e6edf3", padding: "32px 20px", fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>
+    <div style={{ minHeight: "100vh", background: "#0b1220", color: "#e6edf3", padding: "32px 20px", fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>
       <div style={{ maxWidth: 780, margin: "0 auto" }}>
-        <div style={{ display: "flex", alignItems: "centre", gap: 12, marginBottom: 8 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
           <span
             style={{
               width: 10,
@@ -156,7 +156,7 @@ function RastreioPage() {
                   borderBottom: "1px solid #111827",
                   display: "grid",
                   gridTemplateColumns: "1fr auto",
-                  alignItems: "centre",
+                  alignItems: "center",
                   gap: 12,
                 }}
               >
@@ -172,12 +172,12 @@ function RastreioPage() {
                 <span
                   style={{
                     background: "#1e293b",
-                    colour: "#22c55e",
+                    color: "#22c55e",
                     padding: "4px 12px",
                     borderRadius: 999,
                     fontWeight: 700,
                     minWidth: 40,
-                    textAlign: "centre",
+                    textAlign: "center",
                   }}
                 >
                   {n}

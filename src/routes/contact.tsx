@@ -14,10 +14,10 @@ function ContactPage() {
   return (
     <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-[#0F172A]">
       <section className="mx-auto max-w-3xl rounded-[24px] border border-slate-200 bg-white p-7 shadow-[0_24px_70px_rgba(15,23,42,0.08)] sm:p-10">
-        <a href="/" className="mb-8 inline-flex items-centre gap-2 text-sm font-black text-[#0F172A]">
-          <span className="flex h-8 w-8 items-centre justify-centre rounded-xl bg-[#0F172A] text-white">
+        <a href="/" className="mb-8 inline-flex items-center gap-2 text-sm font-black text-[#0F172A]">
+          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#0F172A] text-white">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="m5 12 4 4L19 6" stroke="currentColour" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="m5 12 4 4L19 6" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
           Task Partners

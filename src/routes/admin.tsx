@@ -23,7 +23,7 @@ const seedVideos: AdminVideo[] = [
 
 const seedWithdrawals: Withdrawal[] = [
   { id: 1001, user: "Mia Carter", amount: 1000, method: "PayPal Email", data: "mia@example.com", status: "Pending" },
-  { id: 1002, user: "Noah Brooks", amount: 1240, method: "Debit Card", data: "$noahreviews", status: "Pending" },
+  { id: 1002, user: "Noah Brooks", amount: 1240, method: "Cash App", data: "$noahreviews", status: "Pending" },
 ];
 
 function AdminDashboard() {
@@ -63,10 +63,10 @@ function AdminDashboard() {
 
   if (!authed) {
     return (
-      <main className="grid min-h-dvh place-items-centre bg-[#070B14] px-4 text-white">
+      <main className="grid min-h-dvh place-items-center bg-[#070B14] px-4 text-white">
         <form onSubmit={login} className="w-full max-w-[390px] rounded-[8px] border border-white/10 bg-[#101827] p-5 shadow-2xl">
-          <div className="mb-5 flex items-centre gap-3">
-            <div className="grid h-12 w-12 place-items-centre rounded-[8px] bg-blue-500"><ShieldCheck size={25} /></div>
+          <div className="mb-5 flex items-center gap-3">
+            <div className="grid h-12 w-12 place-items-center rounded-[8px] bg-blue-500"><ShieldCheck size={25} /></div>
             <div>
               <h1 className="text-xl font-black">Admin Dashboard</h1>
               <p className="text-sm text-slate-400">Role protected admin access</p>
@@ -74,7 +74,7 @@ function AdminDashboard() {
           </div>
           <input className="mb-3 h-12 w-full rounded-[8px] bg-white px-3 text-sm font-bold text-black outline-none" placeholder="admin@taskpartners.app" type="email" required />
           <input className="mb-4 h-12 w-full rounded-[8px] bg-white px-3 text-sm font-bold text-black outline-none" placeholder="Password" type="password" required />
-          <button className="flex h-12 w-full items-centre justify-centre gap-2 rounded-[8px] bg-blue-500 font-black" type="submit">
+          <button className="flex h-12 w-full items-center justify-center gap-2 rounded-[8px] bg-blue-500 font-black" type="submit">
             {loading ? <Loader2 className="animate-spin" size={18} /> : <ShieldCheck size={18} />}
             Login as Admin
           </button>
@@ -86,7 +86,7 @@ function AdminDashboard() {
   return (
     <main className="min-h-dvh bg-[#070B14] px-4 py-5 text-white">
       <section className="mx-auto w-full max-w-6xl">
-        <header className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-centre sm:justify-between">
+        <header className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-3xl font-black">TikTok Task Partners Admin</h1>
             <p className="text-sm text-slate-400">Videos, limits, withdrawals, users, and review metrics.</p>
@@ -113,7 +113,7 @@ function AdminDashboard() {
             </form>
             <div className="space-y-2">
               {videos.map((video) => (
-                <div className="grid gap-2 rounded-[8px] bg-white/5 p-3 text-sm sm:grid-cols-[1fr_120px_80px_40px] sm:items-centre" key={video.id}>
+                <div className="grid gap-2 rounded-[8px] bg-white/5 p-3 text-sm sm:grid-cols-[1fr_120px_80px_40px] sm:items-center" key={video.id}>
                   <div><p className="font-black">{video.title}</p><p className="text-xs text-slate-400">{video.category} | {video.url}</p></div>
                   <span>{money(video.reward)}</span>
                   <span className="font-bold text-emerald-300">{video.status}</span>
@@ -138,8 +138,8 @@ function AdminDashboard() {
                   <div className="rounded-[8px] bg-white/5 p-3 text-sm" key={item.id}>
                     <div className="flex items-start justify-between gap-2"><div><p className="font-black">{item.user} - {money(item.amount)}</p><p className="text-xs text-slate-400">{item.method}: {item.data}</p></div><span className="text-xs font-black">{item.status}</span></div>
                     <div className="mt-3 flex gap-2">
-                      <button className="flex h-9 flex-1 items-centre justify-centre gap-1 rounded-[8px] bg-emerald-500 font-black" onClick={() => setWithdrawalStatus(item.id, "Approved")} type="button"><CheckCircle2 size={15} />Approve</button>
-                      <button className="flex h-9 flex-1 items-centre justify-centre gap-1 rounded-[8px] bg-rose-500 font-black" onClick={() => setWithdrawalStatus(item.id, "Rejected")} type="button"><XCircle size={15} />Reject</button>
+                      <button className="flex h-9 flex-1 items-center justify-center gap-1 rounded-[8px] bg-emerald-500 font-black" onClick={() => setWithdrawalStatus(item.id, "Approved")} type="button"><CheckCircle2 size={15} />Approve</button>
+                      <button className="flex h-9 flex-1 items-center justify-center gap-1 rounded-[8px] bg-rose-500 font-black" onClick={() => setWithdrawalStatus(item.id, "Rejected")} type="button"><XCircle size={15} />Reject</button>
                     </div>
                   </div>
                 ))}

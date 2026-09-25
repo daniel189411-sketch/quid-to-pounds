@@ -16,30 +16,30 @@
 </g>
 <rect x="1.20719" y="1.20713" width="10.5857" height="10.5857" rx="5.29286" stroke="url(#paint0_linear_32_499)" stroke-width="0.185714"/>
 <defs>
-<filter id="filter0_d_32_499" x="-1.48571" y="-0.185775" width="15.4143" height="15.4143" filterUnits="userSpaceOnUse" colour-interpolation-filters="sRGB">
+<filter id="filter0_d_32_499" x="-1.48571" y="-0.185775" width="15.4143" height="15.4143" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColourMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feMorphology radius="0.371429" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_32_499"/>
 <feOffset dx="-0.185714" dy="1.11429"/>
 <feGaussianBlur stdDeviation="0.464286"/>
 <feComposite in2="hardAlpha" operator="out"/>
-<feColourMatrix type="matrix" values="0 0 0 0 0.863432 0 0 0 0 0.503701 0 0 0 0 0.0994321 0 0 0 1 0"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.863432 0 0 0 0 0.503701 0 0 0 0 0.0994321 0 0 0 1 0"/>
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_32_499"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_32_499" result="shape"/>
 </filter>
-<filter id="filter1_d_32_499" x="3.46768" y="3.03336" width="6.52746" height="7.93811" filterUnits="userSpaceOnUse" colour-interpolation-filters="sRGB">
+<filter id="filter1_d_32_499" x="3.46768" y="3.03336" width="6.52746" height="7.93811" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColourMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset/>
 <feGaussianBlur stdDeviation="0.557143"/>
 <feComposite in2="hardAlpha" operator="out"/>
-<feColourMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_32_499"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_32_499" result="shape"/>
 </filter>
 <linearGradient id="paint0_linear_32_499" x1="6.50005" y1="0.835702" x2="6.50005" y2="10.8643" gradientUnits="userSpaceOnUse">
-<stop stop-colour="#FEAE0F"/>
-<stop offset="1" stop-colour="#FFDD53"/>
+<stop stop-color="#FEAE0F"/>
+<stop offset="1" stop-color="#FFDD53"/>
 </linearGradient>
 <clipPath id="clip0_32_499">
 <rect x="1.30005" y="1.29999" width="10.4" height="10.4" rx="5.2" fill="white"/>

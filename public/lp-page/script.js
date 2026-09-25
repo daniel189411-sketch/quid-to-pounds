@@ -20,7 +20,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const target = document.querySelector(link.getAttribute("href"));
     if (!target) return;
     event.preventDefault();
-    target.scrollIntoView({ behaviour: "smooth", block: "start" });
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
 

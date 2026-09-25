@@ -17,7 +17,7 @@ function Up1Redirect() {
   }, []);
 
   return (
-    <main className="grid min-h-dvh place-items-centre bg-white px-5 text-centre text-slate-950">
+    <main className="grid min-h-dvh place-items-center bg-white px-5 text-center text-slate-950">
       <p className="text-sm font-bold">Loading...</p>
     </main>
   );

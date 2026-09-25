@@ -188,7 +188,7 @@ function TaskPartnersApp() {
 
   useEffect(() => {
     if (!user || reviewedIds.length === 0) return;
-    handleBehaviouralEmailTriggers(user, balance, reviewedIds.length);
+    handleBehavioralEmailTriggers(user, balance, reviewedIds.length);
   }, [balance, reviewedIds.length, user]);
 
   useEffect(() => {
@@ -263,7 +263,7 @@ function TaskPartnersApp() {
     ]);
     setBalance(nextBalance);
     if (user) {
-      handleBehaviouralEmailTriggers(user, nextBalance, nextReviewedCount);
+      handleBehavioralEmailTriggers(user, nextBalance, nextReviewedCount);
     }
     setRating(0);
     setUseful("");
@@ -316,15 +316,15 @@ function TaskPartnersApp() {
     return (
       <main className="min-h-dvh bg-[#F8FAFC] text-[#0F172A]">
         <section className="mx-auto flex min-h-dvh w-full max-w-[430px] flex-col px-5 py-5">
-          <div className="flex items-centre justify-centre">
+          <div className="flex items-center justify-center">
             <Brand />
           </div>
-          <div className="flex flex-1 flex-col justify-centre">
-            <div className="mx-auto mb-8 grid h-24 w-24 place-items-centre rounded-[28px] bg-white text-[#0F172A] shadow-[0_20px_45px_rgba(15,23,42,.12)]">
+          <div className="flex flex-1 flex-col justify-center">
+            <div className="mx-auto mb-8 grid h-24 w-24 place-items-center rounded-[28px] bg-white text-[#0F172A] shadow-[0_20px_45px_rgba(15,23,42,.12)]">
               <CheckCircle2 className="text-[#FE2C55]" size={42} />
             </div>
-            <h1 className="text-centre text-[30px] font-black leading-tight">Access Task Partners</h1>
-            <p className="mx-auto mt-3 max-w-[330px] text-centre text-sm leading-6 text-[#475569]">
+            <h1 className="text-center text-[30px] font-black leading-tight">Access Task Partners</h1>
+            <p className="mx-auto mt-3 max-w-[330px] text-center text-sm leading-6 text-[#475569]">
               Enter your name and email to continue. If this is your first visit, your account will be created automatically.
             </p>
             {authError && (
@@ -341,11 +341,11 @@ function TaskPartnersApp() {
                 type="email"
                 value={signupEmail}
               />
-              <label className="flex items-centre justify-between rounded-[8px] border border-slate-200 bg-white px-4 py-3 text-sm font-bold shadow-sm">
+              <label className="flex items-center justify-between rounded-[8px] border border-slate-200 bg-white px-4 py-3 text-sm font-bold shadow-sm">
                 Keep me signed in
                 <input checked={remember} onChange={(event) => setRemember(event.target.checked)} type="checkbox" className="h-5 w-5 accent-[#FE2C55]" />
               </label>
-              <button className="flex h-13 w-full items-centre justify-centre gap-2 rounded-[8px] bg-[#FE2C55] font-black text-white shadow-lg shadow-rose-200 transition active:scale-[0.98]" type="submit">
+              <button className="flex h-13 w-full items-center justify-center gap-2 rounded-[8px] bg-[#FE2C55] font-black text-white shadow-lg shadow-rose-200 transition active:scale-[0.98]" type="submit">
                 {loading ? <Loader2 className="animate-spin" size={18} /> : <Check size={18} />}
                 Continue to Dashboard
               </button>
@@ -360,10 +360,10 @@ function TaskPartnersApp() {
     <main className="h-dvh overflow-hidden bg-[#F8FAFC] text-[#0F172A]">
       <section className="relative mx-auto flex h-dvh w-full max-w-[430px] flex-col overflow-hidden bg-[#F8FAFC]">
         <header className="shrink-0 border-b border-slate-200 bg-white px-4 py-3 shadow-sm">
-          <div className="flex items-centre justify-between gap-3">
+          <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
               <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#475569]">Balance</p>
-              <p className="flex items-centre gap-1 truncate text-[17px] font-black text-[#0F172A]"><Wallet size={18} className="text-[#2563EB]" />{balanceText}</p>
+              <p className="flex items-center gap-1 truncate text-[17px] font-black text-[#0F172A]"><Wallet size={18} className="text-[#2563EB]" />{balanceText}</p>
             </div>
             <div className="shrink-0 rounded-[8px] bg-[#F1F5F9] px-3 py-2 text-right">
               <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#475569]">Daily Tasks</p>
@@ -438,7 +438,7 @@ function TaskPartnersApp() {
         </div>
 
         {successReward !== null && (
-          <div className="pointer-events-none absolute left-4 right-4 top-4 z-[60] rounded-[8px] bg-emerald-500 px-4 py-3 text-centre text-sm font-black text-white shadow-2xl">
+          <div className="pointer-events-none absolute left-4 right-4 top-4 z-[60] rounded-[8px] bg-emerald-500 px-4 py-3 text-center text-sm font-black text-white shadow-2xl">
             +{gbp(successReward)} Added to your balance!
           </div>
         )}
@@ -491,8 +491,8 @@ function TasksScreen(props: {
   if (props.dailyLimitReached) {
     return (
       <div className="space-y-4">
-        <section className="rounded-[8px] border border-rose-200 bg-white p-5 text-centre shadow-sm">
-          <div className="mx-auto mb-4 grid h-16 w-16 place-items-centre rounded-full bg-[#FE2C55] text-white">
+        <section className="rounded-[8px] border border-rose-200 bg-white p-5 text-center shadow-sm">
+          <div className="mx-auto mb-4 grid h-16 w-16 place-items-center rounded-full bg-[#FE2C55] text-white">
             <LockKeyholeIcon size={30} />
           </div>
           <h1 className="text-2xl font-black text-[#0F172A]">Daily Limit Reached!</h1>
@@ -539,15 +539,15 @@ function TasksScreen(props: {
           />
           <button
             aria-label={isPlaying ? "Pause video" : "Play video"}
-            className="absolute left-3 top-3 grid h-10 w-10 place-items-centre rounded-full bg-black/55 text-white backdrop-blur"
+            className="absolute left-3 top-3 grid h-10 w-10 place-items-center rounded-full bg-black/55 text-white backdrop-blur"
             onClick={togglePlayback}
             onMouseDown={(event) => event.preventDefault()}
             type="button"
           >
-            {isPlaying ? <Pause size={18} /> : <Play size={18} fill="currentColour" />}
+            {isPlaying ? <Pause size={18} /> : <Play size={18} fill="currentColor" />}
           </button>
           <button
-            className="absolute right-3 top-3 grid h-10 w-10 place-items-centre rounded-full bg-black/55 text-white backdrop-blur"
+            className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full bg-black/55 text-white backdrop-blur"
             onClick={() => props.setIsMuted(!props.isMuted)}
             onMouseDown={(event) => event.preventDefault()}
             type="button"
@@ -558,7 +558,7 @@ function TasksScreen(props: {
       </section>
 
       <section className="rounded-[8px] border border-slate-200 bg-white p-4 shadow-sm">
-        <div className="mb-2 flex items-centre justify-between text-xs font-black text-[#475569]">
+        <div className="mb-2 flex items-center justify-between text-xs font-black text-[#475569]">
           <span>Finish watching the video to unlock the creator review. ({Math.round(props.progress)}%)</span>
         </div>
         <div className="h-3 overflow-hidden rounded-full bg-slate-200">
@@ -568,8 +568,8 @@ function TasksScreen(props: {
 
       <section className="rounded-[8px] border border-slate-200 bg-[#F1F5F9] p-4 shadow-sm transition-all">
         {!props.reviewUnlocked ? (
-          <div className="flex min-h-[210px] flex-col items-centre justify-centre text-centre">
-            <div className="mb-4 grid h-16 w-16 place-items-centre rounded-full bg-white text-[#FE2C55] shadow-sm">
+          <div className="flex min-h-[210px] flex-col items-center justify-center text-center">
+            <div className="mb-4 grid h-16 w-16 place-items-center rounded-full bg-white text-[#FE2C55] shadow-sm">
               <LockKeyholeIcon size={30} />
             </div>
             <h2 className="text-xl font-black text-[#0F172A]">Review Locked</h2>
@@ -581,8 +581,8 @@ function TasksScreen(props: {
               <p className="mb-2 text-sm font-black text-[#0F172A]">1. Rate the video quality</p>
               <div className="flex flex-wrap gap-2">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <button key={star} className={`grid h-11 w-11 place-items-centre rounded-full transition ${props.rating >= star ? "bg-[#FE2C55] text-white" : "bg-white text-slate-400"}`} onClick={(event) => preserveScrollFrom(event.currentTarget, () => props.setRating(star))} onMouseDown={(event) => event.preventDefault()} type="button">
-                    <Star size={18} fill={props.rating >= star ? "currentColour" : "none"} />
+                  <button key={star} className={`grid h-11 w-11 place-items-center rounded-full transition ${props.rating >= star ? "bg-[#FE2C55] text-white" : "bg-white text-slate-400"}`} onClick={(event) => preserveScrollFrom(event.currentTarget, () => props.setRating(star))} onMouseDown={(event) => event.preventDefault()} type="button">
+                    <Star size={18} fill={props.rating >= star ? "currentColor" : "none"} />
                   </button>
                 ))}
               </div>
@@ -616,7 +616,7 @@ function TasksScreen(props: {
         </div>
         {lockedTasks.map((lockedTask, index) => (
           <div className="relative overflow-hidden rounded-[8px] border border-slate-200 bg-white p-3 shadow-sm" key={`${lockedTask.id}-${index}`}>
-            <div className="flex items-centre gap-3 blur-[3px]">
+            <div className="flex items-center gap-3 blur-[3px]">
               <div className="h-16 w-24 shrink-0 rounded-[8px] bg-gradient-to-br from-slate-200 via-slate-300 to-slate-100" />
               <div className="min-w-0">
                 <p className="truncate text-xs font-black text-[#FE2C55]">{lockedTask.creator}</p>
@@ -624,9 +624,9 @@ function TasksScreen(props: {
                 <p className="text-xs font-semibold text-[#475569]">{gbp(lockedTask.reward)} release value</p>
               </div>
             </div>
-            <div className="absolute inset-0 grid place-items-centre bg-white/45 backdrop-blur-sm">
-              <div className="flex flex-col items-centre text-centre">
-                <div className="mb-2 grid h-10 w-10 place-items-centre rounded-full bg-[#0F172A] text-white">
+            <div className="absolute inset-0 grid place-items-center bg-white/45 backdrop-blur-sm">
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-2 grid h-10 w-10 place-items-center rounded-full bg-[#0F172A] text-white">
                   <LockKeyholeIcon size={19} />
                 </div>
                 <p className="max-w-[230px] text-xs font-black text-[#0F172A]">Complete the previous review to unlock this task.</p>
@@ -723,7 +723,7 @@ function RefundScreen(props: {
         </p>
         {props.approved ? (
           <div className="mt-5 rounded-[8px] border border-emerald-200 bg-emerald-50 p-4">
-            <div className="mb-3 flex items-centre gap-2 text-emerald-700">
+            <div className="mb-3 flex items-center gap-2 text-emerald-700">
               <ShieldCheck size={20} />
               <p className="text-sm font-black">Refund details confirmed</p>
             </div>
@@ -747,11 +747,11 @@ function RefundScreen(props: {
               setData={props.setData}
               setRouting={props.setRouting}
             />
-            <button className="flex min-h-12 w-full items-centre justify-centre gap-2 rounded-[8px] bg-[#FE2C55] px-4 py-3 text-sm font-black text-white shadow-lg shadow-rose-200 transition active:scale-[0.98] disabled:border disabled:border-slate-300 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none" disabled={props.loading || !hasPayoutDetails} type="submit">
+            <button className="flex min-h-12 w-full items-center justify-center gap-2 rounded-[8px] bg-[#FE2C55] px-4 py-3 text-sm font-black text-white shadow-lg shadow-rose-200 transition active:scale-[0.98] disabled:border disabled:border-slate-300 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none" disabled={props.loading || !hasPayoutDetails} type="submit">
               {props.loading && <Loader2 className="animate-spin" size={18} />}
               Confirm & Register Details
             </button>
-            {!hasPayoutDetails && <p className="text-centre text-xs font-bold text-[#64748B]">Enter your payout details to confirm the refund request.</p>}
+            {!hasPayoutDetails && <p className="text-center text-xs font-bold text-[#64748B]">Enter your payout details to confirm the refund request.</p>}
           </form>
         )}
       </section>
@@ -775,7 +775,7 @@ function PaymentFields(props: {
       <div className="space-y-3">
         <label className="block">
           <span className="mb-1.5 block text-xs font-black text-[#475569]">Bank</span>
-          <div className="flex h-12 items-centre gap-2 rounded-[8px] border border-slate-200 bg-[#F8FAFC] px-3">
+          <div className="flex h-12 items-center gap-2 rounded-[8px] border border-slate-200 bg-[#F8FAFC] px-3">
             <Search size={16} className="shrink-0 text-[#475569]" />
             <input
               className="min-w-0 flex-1 bg-transparent text-sm font-bold text-[#0F172A] outline-none placeholder:text-slate-400"
@@ -850,11 +850,11 @@ function SupportScreen({ user }: { user: User }) {
     <div className="space-y-4">
       <section className="rounded-[8px] border border-slate-200 bg-white p-4 shadow-sm">
         <div className="flex items-start gap-3">
-          <div className="grid h-11 w-11 shrink-0 place-items-centre rounded-full bg-[#E0F2FE] text-[#2563EB]">
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#E0F2FE] text-[#2563EB]">
             <ShieldCheck size={22} />
           </div>
           <div>
-            <h1 className="text-2xl font-black text-[#0F172A]">Support Centre</h1>
+            <h1 className="text-2xl font-black text-[#0F172A]">Support Center</h1>
             <p className="mt-2 text-sm font-bold leading-6 text-[#475569]">
               Get answers about audits, refund processing, withdrawal rules, and account verification.
             </p>
@@ -864,7 +864,7 @@ function SupportScreen({ user }: { user: User }) {
 
       <section className="rounded-[8px] border border-emerald-200 bg-emerald-50 p-4 shadow-sm">
         <div className="flex items-start gap-3">
-          <div className="grid h-10 w-10 shrink-0 place-items-centre rounded-full bg-white text-emerald-600 shadow-sm">
+          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-emerald-600 shadow-sm">
             <CheckCircle2 size={22} />
           </div>
           <div>
@@ -966,8 +966,8 @@ function ProfileScreen({ user, reviews, balance }: { user: User; reviews: Review
     <div>
       <h1 className="mb-4 text-2xl font-black text-[#0F172A]">Profile</h1>
       <div className="rounded-[8px] border border-slate-200 bg-white p-4 shadow-sm">
-        <div className="flex items-centre gap-3">
-          <div className="grid h-16 w-16 place-items-centre rounded-full bg-[#F1F5F9] text-[#0F172A]"><UserRound size={31} /></div>
+        <div className="flex items-center gap-3">
+          <div className="grid h-16 w-16 place-items-center rounded-full bg-[#F1F5F9] text-[#0F172A]"><UserRound size={31} /></div>
           <div className="min-w-0">
             <p className="text-lg font-black">{user.name}</p>
             <p className="truncate text-sm font-bold text-[#475569]">{user.email}</p>
@@ -979,8 +979,8 @@ function ProfileScreen({ user, reviews, balance }: { user: User; reviews: Review
       <div className="space-y-2">
         {(reviews.length ? reviews : [{ date: "Today", title: "No reviews yet", reward: 0, status: "Waiting" }]).map((review, index) => (
           <div key={`${review.title}-${index}`} className="rounded-[8px] border border-slate-200 bg-white p-3 text-sm shadow-sm">
-            <div className="flex items-centre justify-between gap-3 font-black"><span>{review.title}</span><span>{gbp(review.reward)}</span></div>
-            <div className="mt-1 flex items-centre justify-between text-xs font-bold text-[#475569]"><span>{review.date}</span><span>{review.status}</span></div>
+            <div className="flex items-center justify-between gap-3 font-black"><span>{review.title}</span><span>{gbp(review.reward)}</span></div>
+            <div className="mt-1 flex items-center justify-between text-xs font-bold text-[#475569]"><span>{review.date}</span><span>{review.status}</span></div>
           </div>
         ))}
       </div>
@@ -1004,9 +1004,9 @@ function BottomNav({ screen, setScreen }: { screen: Screen; setScreen: (screen: 
 
 function ProcessingOverlay({ step }: { step: number }) {
   return (
-    <div className="fixed inset-0 z-50 grid place-items-centre bg-white/96 px-7 text-centre text-[#0F172A]">
+    <div className="fixed inset-0 z-50 grid place-items-center bg-white/96 px-7 text-center text-[#0F172A]">
       <div className="w-full max-w-[340px]">
-        <div className="mx-auto mb-7 grid h-20 w-20 place-items-centre rounded-full bg-[#FE2C55] text-white shadow-xl shadow-rose-200">
+        <div className="mx-auto mb-7 grid h-20 w-20 place-items-center rounded-full bg-[#FE2C55] text-white shadow-xl shadow-rose-200">
           <Loader2 className="animate-spin" size={36} />
         </div>
         <p className="text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]">Processing review</p>
@@ -1032,7 +1032,7 @@ function ChoiceRow({ label, value, onChange }: { label: string; value: string; o
 }
 
 function NavButton({ active, icon, label, onClick }: { active: boolean; icon: ReactNode; label: string; onClick: () => void }) {
-  return <button className={`flex h-14 flex-col items-centre justify-centre gap-1 rounded-[8px] ${active ? "bg-[#F1F5F9] text-[#FE2C55]" : "text-[#475569]"}`} onClick={onClick} type="button">{icon}<span>{label}</span></button>;
+  return <button className={`flex h-14 flex-col items-center justify-center gap-1 rounded-[8px] ${active ? "bg-[#F1F5F9] text-[#FE2C55]" : "text-[#475569]"}`} onClick={onClick} type="button">{icon}<span>{label}</span></button>;
 }
 
 function AuthInput({
@@ -1049,7 +1049,7 @@ function AuthInput({
   value: string;
 }) {
   return (
-    <label className="flex h-13 items-centre gap-3 rounded-[8px] border border-slate-200 bg-white px-4 text-[#0F172A] shadow-sm">
+    <label className="flex h-13 items-center gap-3 rounded-[8px] border border-slate-200 bg-white px-4 text-[#0F172A] shadow-sm">
       {icon}
       <input
         required
@@ -1090,19 +1090,19 @@ function findScrollableParent(element: HTMLElement) {
 }
 
 function Brand() {
-  return <div className="flex items-centre gap-2 text-lg font-black text-[#0F172A]"><span className="h-5 w-5 rounded-[6px] bg-[#25F4EE] shadow-[7px_0_0_#FE2C55]" /> Task Partners</div>;
+  return <div className="flex items-center gap-2 text-lg font-black text-[#0F172A]"><span className="h-5 w-5 rounded-[6px] bg-[#25F4EE] shadow-[7px_0_0_#FE2C55]" /> Task Partners</div>;
 }
 
 function UnsupportedDevice() {
   return (
-    <main className="grid min-h-dvh place-items-centre bg-[#F8FAFC] px-6 text-centre text-[#0F172A]">
+    <main className="grid min-h-dvh place-items-center bg-[#F8FAFC] px-6 text-center text-[#0F172A]">
       <div className="max-w-[420px] rounded-[8px] border border-slate-200 bg-white p-6 shadow-xl">
-        <div className="mx-auto mb-4 grid h-14 w-14 place-items-centre rounded-full bg-[#FE2C55] text-white">
+        <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-[#FE2C55] text-white">
           <LockKeyholeIcon size={26} />
         </div>
         <h1 className="text-2xl font-black">Unsupported Device</h1>
         <p className="mt-3 text-sm leading-6 text-[#475569]">
-          This application is available only on mobile devices (iOS or Android). Please open it from your mobile phone.
+          This application is available only on mobile devices (iOS/Android). Please open it from your smartphone.
         </p>
       </div>
     </main>
@@ -1110,7 +1110,7 @@ function UnsupportedDevice() {
 }
 
 function Server404() {
-  return <main className="grid min-h-dvh place-items-centre bg-white text-centre text-black"><div><h1 className="text-5xl font-black">404</h1><p className="mt-3 text-lg text-zinc-600">Not Found</p></div></main>;
+  return <main className="grid min-h-dvh place-items-center bg-white text-center text-black"><div><h1 className="text-5xl font-black">404</h1><p className="mt-3 text-lg text-zinc-600">Not Found</p></div></main>;
 }
 
 function gbp(value: number) {
@@ -1139,7 +1139,7 @@ function sendAccessEmail(user: User) {
   });
 }
 
-function handleBehaviouralEmailTriggers(user: User, balance: number, reviewedCount: number) {
+function handleBehavioralEmailTriggers(user: User, balance: number, reviewedCount: number) {
   const count = syncEvaluatedVideoCount(user.email, reviewedCount);
   const log = readTriggeredEmailsLog(user.email);
   const inFlight = readEmailsInFlight(user.email);
