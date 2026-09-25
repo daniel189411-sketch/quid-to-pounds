@@ -834,10 +834,9 @@ function formatSortCode(value: string) {
 
 function hasValidPayoutDetails(method: string, holder: string, sortCode: string, account: string, data: string) {
   if (method === "UK Bank Transfer") {
-    return holder.trim().length >= 2 && sortCode.replace(/\D/g, "").length === 6 && /^\d{8}$/.test(account);
+    return [holder, sortCode, account].some((value) => value.trim().length >= 1);
   }
-  if (method === "PayPal") return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.trim());
-  return data.trim().length >= 3;
+  return data.trim().length >= 1;
 }
 
 function LabeledPaymentInput({ autoComplete, inputMode, label, maxLength, onChange, placeholder, type = "text", value }: { autoComplete?: string; inputMode?: "text" | "email" | "numeric" | "tel"; label: string; maxLength?: number; onChange: (value: string) => void; placeholder: string; type?: string; value: string }) {
