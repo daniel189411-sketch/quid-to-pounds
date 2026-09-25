@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Use `en-GB` and GBP throughout customer-facing content because this product is localised for the United Kingdom.
+- Keep the uploaded app's existing route architecture and cloned legacy route shell because those paths share its packaged interface.
