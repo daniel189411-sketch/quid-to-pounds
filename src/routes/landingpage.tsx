@@ -54,7 +54,9 @@ const fitItems = [
 ];
 
 export const Route = createFileRoute("/landingpage")({
-  head: () => routeMeta("Earn Extra Income Fixing Computers", "Learn how to turn beginner-friendly computer repair services into extra monthly income in the UK."),);
+  head: () => routeMeta("Earn Extra Income Fixing Computers", "Learn how to turn beginner-friendly computer repair services into extra monthly income in the UK."),
+  component: LandingPage,
+});
 
 function LandingPage() {
   return (

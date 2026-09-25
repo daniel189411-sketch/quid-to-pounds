@@ -3,7 +3,9 @@ import type { ReactNode } from "react";
 import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/refund")({
-  head: () => routeMeta("Refund Policy | Task Partners", "Read the Task Partners refund policy and request guidance."),);
+  head: () => routeMeta("Refund Policy | Task Partners", "Read the Task Partners refund policy and request guidance."),
+  component: RefundPage,
+});
 
 function LegalLayout({ label, title, children }: { label: string; title: string; children: ReactNode }) {
   return (

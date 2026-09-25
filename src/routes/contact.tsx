@@ -2,7 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
-  head: () => routeMeta("Contact Task Partners", "Contact Task Partners support for account, access and payment help."),);
+  head: () => routeMeta("Contact Task Partners", "Contact Task Partners support for account, access and payment help."),
+  component: ContactPage,
+});
 
 function ContactPage() {
   return (

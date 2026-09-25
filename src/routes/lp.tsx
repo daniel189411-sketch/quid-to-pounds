@@ -2,7 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/lp")({
-  head: () => routeMeta("Task Partners Access", "Get access to the Task Partners productivity and review workspace."),);
+  head: () => routeMeta("Task Partners Access", "Get access to the Task Partners productivity and review workspace."),
+  component: LpRoute,
+});
 
 function LpRoute() {
   return (

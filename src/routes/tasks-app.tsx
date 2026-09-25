@@ -23,7 +23,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/tasks-app")({
-  head: () => routeMeta("Task Partners Rewards", "Complete creator audits and track your rewards in pounds sterling."),);
+  head: () => routeMeta("Task Partners Rewards", "Complete creator audits and track your rewards in pounds sterling."),
+  component: TaskPartnersApp,
+});
 
 type Screen = "tasks" | "wallet" | "refund" | "support" | "profile";
 type Review = { date: string; title: string; reward: number; status: string };

@@ -5,7 +5,9 @@ import { useMemo, useState } from "react";
 import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/admin")({
-  head: () => routeMeta("Task Partners Admin", "Manage Task Partners reviews, balances and UK payout requests."),);
+  head: () => routeMeta("Task Partners Admin", "Manage Task Partners reviews, balances and UK payout requests."),
+  component: AdminDashboard,
+});
 
 type AdminVideo = { id: number; title: string; url: string; category: string; reward: number; status: "Active" | "Inactive" };
 type Withdrawal = { id: number; user: string; amount: number; method: string; data: string; status: "Pending" | "Approved" | "Rejected" };

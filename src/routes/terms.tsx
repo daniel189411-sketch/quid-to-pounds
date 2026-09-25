@@ -3,7 +3,9 @@ import type { ReactNode } from "react";
 import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/terms")({
-  head: () => routeMeta("Terms of Service | Task Partners", "Read the terms governing access to the Task Partners service."),);
+  head: () => routeMeta("Terms of Service | Task Partners", "Read the terms governing access to the Task Partners service."),
+  component: TermsPage,
+});
 
 function LegalLayout({ label, title, children }: { label: string; title: string; children: ReactNode }) {
   return (

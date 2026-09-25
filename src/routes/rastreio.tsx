@@ -5,7 +5,9 @@ import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/rastreio")({
   ssr: false,
-  head: () => routeMeta("Order Tracking | Task Partners", "Track your Task Partners order and access status."),);
+  head: () => routeMeta("Order Tracking | Task Partners", "Track your Task Partners order and access status."),
+  component: RastreioPage,
+});
 
 type Counts = Record<string, number>;
 

@@ -3,7 +3,9 @@ import { useEffect } from "react";
 import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/up1")({
-  head: () => routeMeta("Task Partners Special Offer", "Review the current Task Partners special offer."),);
+  head: () => routeMeta("Task Partners Special Offer", "Review the current Task Partners special offer."),
+  component: Up1Redirect,
+});
 
 function Up1Redirect() {
   useEffect(() => {

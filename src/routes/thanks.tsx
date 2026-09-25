@@ -2,7 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/thanks")({
-  head: () => routeMeta("Access Confirmed | Task Partners", "Your Task Partners purchase and access have been confirmed."),);
+  head: () => routeMeta("Access Confirmed | Task Partners", "Your Task Partners purchase and access have been confirmed."),
+  component: ThanksPage,
+});
 
 const css = `
 .tp-thanks {
