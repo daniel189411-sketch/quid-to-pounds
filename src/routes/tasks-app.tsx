@@ -12,7 +12,6 @@ import {
   Play,
   ShieldCheck,
   ReceiptText,
-  Search,
   Smartphone,
   Star,
   UserRound,
