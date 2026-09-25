@@ -19,7 +19,7 @@ const seedVideos: AdminVideo[] = [
 
 const seedWithdrawals: Withdrawal[] = [
   { id: 1001, user: "Mia Carter", amount: 1000, method: "PayPal Email", data: "mia@example.com", status: "Pending" },
-  { id: 1002, user: "Noah Brooks", amount: 1240, method: "Cash App", data: "$noahreviews", status: "Pending" },
+  { id: 1002, user: "Noah Brooks", amount: 1240, method: "UK Bank Transfer", data: "Sort code on file", status: "Pending" },
 ];
 
 function AdminDashboard() {
