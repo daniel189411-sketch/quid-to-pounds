@@ -20,16 +20,10 @@ import {
 } from "lucide-react";
 import type { FormEvent, ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/tasks-app")({
-  head: () => ({
-    meta: [
-      { title: "Task Partners" },
-      { name: "description", content: "Premium mobile task auditing app." },
-    ],
-  }),
-  component: TaskPartnersApp,
-});
+  head: () => routeMeta("Task Partners Rewards", "Complete creator audits and track your rewards in pounds sterling."),);
 
 type Screen = "tasks" | "wallet" | "refund" | "support" | "profile";
 type Review = { date: string; title: string; reward: number; status: string };

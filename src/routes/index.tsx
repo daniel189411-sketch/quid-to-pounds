@@ -1,16 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "TikTok Rewards" },
-      { name: "description", content: "Claim your TikTok reward and get paid instantly to PayPal, Faster Payments, Revolut, or your UK bank." },
-      { property: "og:title", content: "TikTok Rewards" },
-      { property: "og:description", content: "Claim your TikTok reward and get paid instantly to PayPal, Faster Payments, Revolut, or your UK bank." },
-    ],
-  }),
-  component: Index,
-});
+  head: () => routeMeta("TikTok Rewards UK", "Claim your TikTok reward in pounds and receive payment through supported UK payout methods."),);
 
 function Index() {
   return null;

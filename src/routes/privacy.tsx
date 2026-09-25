@@ -1,15 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacy")({
-  head: () => ({
-    meta: [
-      { title: "Privacy Policy | Task Partners" },
-      { name: "description", content: "Task Partners Privacy Policy." },
-    ],
-  }),
-  component: PrivacyPage,
-});
+  head: () => routeMeta("Privacy Policy | Task Partners", "Read how Task Partners collects, uses and protects your information."),);
 
 function LegalLayout({ label, title, children }: { label: string; title: string; children: ReactNode }) {
   return (

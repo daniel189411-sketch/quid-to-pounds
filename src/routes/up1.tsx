@@ -1,15 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
+import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/up1")({
-  head: () => ({
-    meta: [
-      { title: "Up1" },
-      { name: "description", content: "Upsell page." },
-    ],
-  }),
-  component: Up1Redirect,
-});
+  head: () => routeMeta("Task Partners Special Offer", "Review the current Task Partners special offer."),);
 
 function Up1Redirect() {
   useEffect(() => {

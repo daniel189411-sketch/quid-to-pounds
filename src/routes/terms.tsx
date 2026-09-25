@@ -1,15 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/terms")({
-  head: () => ({
-    meta: [
-      { title: "Terms of Service | Task Partners" },
-      { name: "description", content: "Task Partners Terms of Service." },
-    ],
-  }),
-  component: TermsPage,
-});
+  head: () => routeMeta("Terms of Service | Task Partners", "Read the terms governing access to the Task Partners service."),);
 
 function LegalLayout({ label, title, children }: { label: string; title: string; children: ReactNode }) {
   return (

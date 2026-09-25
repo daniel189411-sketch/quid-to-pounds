@@ -1,18 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/thanks")({
-  head: () => ({
-    meta: [
-      { title: "Task Partners | Payment Confirmed" },
-      {
-        name: "description",
-        content: "Your Task Partners payment has been confirmed. Access your dashboard and included resources.",
-      },
-      { name: "robots", content: "noindex, follow" },
-    ],
-  }),
-  component: ThanksPage,
-});
+  head: () => routeMeta("Access Confirmed | Task Partners", "Your Task Partners purchase and access have been confirmed."),);
 
 const css = `
 .tp-thanks {

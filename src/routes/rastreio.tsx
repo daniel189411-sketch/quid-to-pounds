@@ -1,17 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/rastreio")({
   ssr: false,
-  head: () => ({
-    meta: [
-      { title: "Rastreio ao vivo" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
-  }),
-  component: RastreioPage,
-});
+  head: () => routeMeta("Order Tracking | Task Partners", "Track your Task Partners order and access status."),);
 
 type Counts = Record<string, number>;
 

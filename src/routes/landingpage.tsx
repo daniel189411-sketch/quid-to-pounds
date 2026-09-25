@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2, PoundSterling, Home, ShieldCheck, TrendingUp, Users, Wrench } from "lucide-react";
 import type { ReactNode } from "react";
+import { routeMeta } from "@/lib/seo";
 
 const CHECKOUT_URL = "https://checkout.vendepay.com/a840e80d-25b8-4cd4-a9a1-c0d246e846a0";
 
@@ -53,17 +54,7 @@ const fitItems = [
 ];
 
 export const Route = createFileRoute("/landingpage")({
-  head: () => ({
-    meta: [
-      { title: "Extra Income Fixing Computers" },
-      {
-        name: "description",
-        content: "Learn how to turn beginner-friendly computer repair services into extra monthly income.",
-      },
-    ],
-  }),
-  component: LandingPage,
-});
+  head: () => routeMeta("Earn Extra Income Fixing Computers", "Learn how to turn beginner-friendly computer repair services into extra monthly income in the UK."),);
 
 function LandingPage() {
   return (

@@ -2,16 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2, PoundSterling, Film, Loader2, ShieldCheck, Trash2, UsersRound, XCircle } from "lucide-react";
 import type { FormEvent, ReactNode } from "react";
 import { useMemo, useState } from "react";
+import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/admin")({
-  head: () => ({
-    meta: [
-      { title: "Admin Dashboard" },
-      { name: "description", content: "TikTok Task Partners admin dashboard." },
-    ],
-  }),
-  component: AdminDashboard,
-});
+  head: () => routeMeta("Task Partners Admin", "Manage Task Partners reviews, balances and UK payout requests."),);
 
 type AdminVideo = { id: number; title: string; url: string; category: string; reward: number; status: "Active" | "Inactive" };
 type Withdrawal = { id: number; user: string; amount: number; method: string; data: string; status: "Pending" | "Approved" | "Rejected" };

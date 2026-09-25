@@ -1,15 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/refund")({
-  head: () => ({
-    meta: [
-      { title: "Refund Policy | Task Partners" },
-      { name: "description", content: "Task Partners Refund Policy." },
-    ],
-  }),
-  component: RefundPage,
-});
+  head: () => routeMeta("Refund Policy | Task Partners", "Read the Task Partners refund policy and request guidance."),);
 
 function LegalLayout({ label, title, children }: { label: string; title: string; children: ReactNode }) {
   return (

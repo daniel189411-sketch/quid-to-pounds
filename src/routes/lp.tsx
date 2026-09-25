@@ -1,18 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/lp")({
-  head: () => ({
-    meta: [
-      { title: "Task Partners | Partner Review Workspace" },
-      {
-        name: "description",
-        content:
-          "Task Partners is a modern workspace for partner review activities, digital resources, activity tracking, account management, and support.",
-      },
-    ],
-  }),
-  component: LpRoute,
-});
+  head: () => routeMeta("Task Partners Access", "Get access to the Task Partners productivity and review workspace."),);
 
 function LpRoute() {
   return (

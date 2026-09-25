@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { routeMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/back-redirect")({
+  head: () => routeMeta("Release Reward | Task Partners", "Continue securely to release your Task Partners reward."),
   component: BackRedirect,
 });
 
