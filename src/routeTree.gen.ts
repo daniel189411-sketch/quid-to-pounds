@@ -33,8 +33,6 @@ import { Route as Upsell2RouteImport } from './routes/upsell-2'
 import { Route as Upsell3RouteImport } from './routes/upsell-3'
 import { Route as Upsell4RouteImport } from './routes/upsell-4'
 import { Route as Upsell5RouteImport } from './routes/upsell-5'
-import { Route as ApiPublicCheckPixStatusRouteImport } from './routes/api/public/check-pix-status'
-import { Route as ApiPublicCreatePixPaymentRouteImport } from './routes/api/public/create-pix-payment'
 import { Route as ApiPublicSendAccessEmailRouteImport } from './routes/api/public/send-access-email'
 
 const IndexRoute = IndexRouteImport.update({
@@ -157,17 +155,6 @@ const Upsell5Route = Upsell5RouteImport.update({
   path: '/upsell-5',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicCheckPixStatusRoute = ApiPublicCheckPixStatusRouteImport.update({
-  id: '/api/public/check-pix-status',
-  path: '/api/public/check-pix-status',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicCreatePixPaymentRoute =
-  ApiPublicCreatePixPaymentRouteImport.update({
-    id: '/api/public/create-pix-payment',
-    path: '/api/public/create-pix-payment',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const ApiPublicSendAccessEmailRoute =
   ApiPublicSendAccessEmailRouteImport.update({
     id: '/api/public/send-access-email',
@@ -200,8 +187,6 @@ export interface FileRoutesByFullPath {
   '/upsell-3': typeof Upsell3Route
   '/upsell-4': typeof Upsell4Route
   '/upsell-5': typeof Upsell5Route
-  '/api/public/check-pix-status': typeof ApiPublicCheckPixStatusRoute
-  '/api/public/create-pix-payment': typeof ApiPublicCreatePixPaymentRoute
   '/api/public/send-access-email': typeof ApiPublicSendAccessEmailRoute
 }
 export interface FileRoutesByTo {
@@ -229,8 +214,6 @@ export interface FileRoutesByTo {
   '/upsell-3': typeof Upsell3Route
   '/upsell-4': typeof Upsell4Route
   '/upsell-5': typeof Upsell5Route
-  '/api/public/check-pix-status': typeof ApiPublicCheckPixStatusRoute
-  '/api/public/create-pix-payment': typeof ApiPublicCreatePixPaymentRoute
   '/api/public/send-access-email': typeof ApiPublicSendAccessEmailRoute
 }
 export interface FileRoutesById {
@@ -259,8 +242,6 @@ export interface FileRoutesById {
   '/upsell-3': typeof Upsell3Route
   '/upsell-4': typeof Upsell4Route
   '/upsell-5': typeof Upsell5Route
-  '/api/public/check-pix-status': typeof ApiPublicCheckPixStatusRoute
-  '/api/public/create-pix-payment': typeof ApiPublicCreatePixPaymentRoute
   '/api/public/send-access-email': typeof ApiPublicSendAccessEmailRoute
 }
 export interface FileRouteTypes {
@@ -290,8 +271,6 @@ export interface FileRouteTypes {
     | '/upsell-3'
     | '/upsell-4'
     | '/upsell-5'
-    | '/api/public/check-pix-status'
-    | '/api/public/create-pix-payment'
     | '/api/public/send-access-email'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -319,8 +298,6 @@ export interface FileRouteTypes {
     | '/upsell-3'
     | '/upsell-4'
     | '/upsell-5'
-    | '/api/public/check-pix-status'
-    | '/api/public/create-pix-payment'
     | '/api/public/send-access-email'
   id:
     | '__root__'
@@ -348,8 +325,6 @@ export interface FileRouteTypes {
     | '/upsell-3'
     | '/upsell-4'
     | '/upsell-5'
-    | '/api/public/check-pix-status'
-    | '/api/public/create-pix-payment'
     | '/api/public/send-access-email'
   fileRoutesById: FileRoutesById
 }
@@ -378,8 +353,6 @@ export interface RootRouteChildren {
   Upsell3Route: typeof Upsell3Route
   Upsell4Route: typeof Upsell4Route
   Upsell5Route: typeof Upsell5Route
-  ApiPublicCheckPixStatusRoute: typeof ApiPublicCheckPixStatusRoute
-  ApiPublicCreatePixPaymentRoute: typeof ApiPublicCreatePixPaymentRoute
   ApiPublicSendAccessEmailRoute: typeof ApiPublicSendAccessEmailRoute
 }
 
@@ -553,20 +526,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Upsell5RouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/check-pix-status': {
-      id: '/api/public/check-pix-status'
-      path: '/api/public/check-pix-status'
-      fullPath: '/api/public/check-pix-status'
-      preLoaderRoute: typeof ApiPublicCheckPixStatusRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/create-pix-payment': {
-      id: '/api/public/create-pix-payment'
-      path: '/api/public/create-pix-payment'
-      fullPath: '/api/public/create-pix-payment'
-      preLoaderRoute: typeof ApiPublicCreatePixPaymentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/public/send-access-email': {
       id: '/api/public/send-access-email'
       path: '/api/public/send-access-email'
@@ -602,8 +561,6 @@ const rootRouteChildren: RootRouteChildren = {
   Upsell3Route: Upsell3Route,
   Upsell4Route: Upsell4Route,
   Upsell5Route: Upsell5Route,
-  ApiPublicCheckPixStatusRoute: ApiPublicCheckPixStatusRoute,
-  ApiPublicCreatePixPaymentRoute: ApiPublicCreatePixPaymentRoute,
   ApiPublicSendAccessEmailRoute: ApiPublicSendAccessEmailRoute,
 }
 export const routeTree = rootRouteImport
