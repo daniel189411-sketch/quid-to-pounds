@@ -3,6 +3,7 @@ import {
   AtSign,
   Check,
   CheckCircle2,
+  Building2,
   Home,
   Loader2,
   LockKeyholeIcon,
@@ -12,6 +13,7 @@ import {
   ShieldCheck,
   ReceiptText,
   Search,
+  Smartphone,
   Star,
   UserRound,
   Volume2,
@@ -21,6 +23,7 @@ import {
 import type { FormEvent, ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { routeMeta } from "@/lib/seo";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/tasks-app")({
   head: () => routeMeta("Task Partners Rewards", "Complete creator audits and track your rewards in pounds sterling."),
@@ -90,7 +93,12 @@ const tasks: VideoTask[] = Array.from({ length: TOTAL_TASKS_TO_GOAL }, (_, index
 });
 
 const processingSteps = ["Analyzing consistency...", "Validating retention...", "Checking review quality...", "Adding reward..."];
-const paymentOptions = ["UK Bank Transfer", "PayPal", "Debit Card", "Revolut"];
+const paymentOptions = [
+  { name: "UK Bank Transfer", detail: "Usually arrives the same working day", icon: Building2 },
+  { name: "PayPal", detail: "Sent to your PayPal email", icon: AtSign },
+  { name: "Revolut", detail: "Sent to your mobile or Revtag", icon: Smartphone },
+] as const;
+const defaultPaymentMethod = paymentOptions[0].name;
 
 function TaskPartnersApp() {
   const [allowed, setAllowed] = useState(false);
@@ -116,12 +124,12 @@ function TaskPartnersApp() {
   const [processing, setProcessing] = useState(false);
   const [processingStep, setProcessingStep] = useState(0);
   const [successReward, setSuccessReward] = useState<number | null>(null);
-  const [paymentMethod, setPaymentMethod] = useState(paymentOptions[0]);
+  const [paymentMethod, setPaymentMethod] = useState<string>(defaultPaymentMethod);
   const [paymentData, setPaymentData] = useState("");
   const [paymentBank, setPaymentBank] = useState("");
   const [paymentRouting, setPaymentRouting] = useState("");
   const [paymentAccount, setPaymentAccount] = useState("");
-  const [refundMethod, setRefundMethod] = useState(paymentOptions[0]);
+  const [refundMethod, setRefundMethod] = useState<string>(defaultPaymentMethod);
   const [refundData, setRefundData] = useState("");
   const [refundBank, setRefundBank] = useState("");
   const [refundRouting, setRefundRouting] = useState("");
@@ -659,10 +667,8 @@ function WalletScreen(props: {
         <MetricCard label="Minimum Withdrawal" value={gbp(MIN_WITHDRAWAL)} tone="bg-white" />
       </div>
       <div className="mt-5 rounded-[8px] border border-slate-200 bg-white p-4 shadow-sm">
-        <p className="mb-3 text-sm font-black text-[#0F172A]">Withdrawal method</p>
-        <select className="mb-3 h-12 w-full rounded-[8px] border border-slate-200 bg-[#F8FAFC] px-4 text-sm font-bold text-[#0F172A]" value={props.paymentMethod} onChange={(event) => props.setPaymentMethod(event.target.value)}>
-          {paymentOptions.map((method) => <option key={method}>{method}</option>)}
-        </select>
+        <p className="mb-3 text-sm font-black text-[#0F172A]">Where would you like to receive your money?</p>
+        <PaymentMethodPicker method={props.paymentMethod} setMethod={props.setPaymentMethod} />
         <PaymentFields
           account={props.paymentAccount}
           bank={props.paymentBank}
@@ -706,9 +712,7 @@ function RefundScreen(props: {
   setMethod: (value: string) => void;
   setRouting: (value: string) => void;
 }) {
-  const hasPayoutDetails = props.method === "UK Bank Transfer"
-    ? Boolean(props.bank.trim() && props.routing.trim() && props.account.trim())
-    : Boolean(props.data.trim());
+  const hasPayoutDetails = hasValidPayoutDetails(props.method, props.bank, props.routing, props.account, props.data);
 
   return (
     <div>
@@ -729,9 +733,10 @@ function RefundScreen(props: {
           </div>
         ) : (
           <form className="mt-5 space-y-4" onSubmit={props.onSubmit}>
-            <select className="h-12 w-full rounded-[8px] border border-slate-200 bg-[#F8FAFC] px-4 text-sm font-bold text-[#0F172A]" value={props.method} onChange={(event) => props.setMethod(event.target.value)}>
-              {paymentOptions.map((method) => <option key={method}>{method}</option>)}
-            </select>
+            <div>
+              <p className="mb-3 text-sm font-black text-[#0F172A]">Where should we send your refund?</p>
+              <PaymentMethodPicker method={props.method} setMethod={props.setMethod} />
+            </div>
             <PaymentFields
               account={props.account}
               bank={props.bank}
@@ -769,54 +774,85 @@ function PaymentFields(props: {
   if (props.method === "UK Bank Transfer") {
     return (
       <div className="space-y-3">
-        <label className="block">
-          <span className="mb-1.5 block text-xs font-black text-[#475569]">Bank</span>
-          <div className="flex h-12 items-center gap-2 rounded-[8px] border border-slate-200 bg-[#F8FAFC] px-3">
-            <Search size={16} className="shrink-0 text-[#475569]" />
-            <input
-              className="min-w-0 flex-1 bg-transparent text-sm font-bold text-[#0F172A] outline-none placeholder:text-slate-400"
-              onChange={(event) => props.setBank(event.target.value)}
-              placeholder="Search your bank"
-              value={props.bank}
-            />
-          </div>
-        </label>
-        <LabeledPaymentInput label="Sort code" onChange={props.setRouting} placeholder="Enter your sort code" value={props.routing} />
-        <LabeledPaymentInput label="Account number" onChange={props.setAccount} placeholder="Enter your account number" value={props.account} />
-        <button className="h-12 w-full rounded-[8px] bg-[#FE2C55] text-sm font-black text-white shadow-lg shadow-rose-100" type="button">
-          Continue
-        </button>
+        <LabeledPaymentInput autoComplete="name" label="Account holder" maxLength={100} onChange={props.setBank} placeholder="Full name on the account" value={props.bank} />
+        <LabeledPaymentInput inputMode="numeric" label="Sort code" maxLength={8} onChange={(value) => props.setRouting(formatSortCode(value))} placeholder="00-00-00" value={props.routing} />
+        <LabeledPaymentInput inputMode="numeric" label="Account number" maxLength={8} onChange={(value) => props.setAccount(value.replace(/\D/g, "").slice(0, 8))} placeholder="8-digit account number" value={props.account} />
       </div>
     );
   }
 
-  const placeholder =
-    props.method === "PayPal"
-      ? "Enter your PayPal email"
-      : props.method === "Revolut"
-        ? "Enter your Revolut username"
-        : props.method === "Debit Card"
-          ? "Enter the cardholder name"
-          : "Enter your payout details";
+  const isPayPal = props.method === "PayPal";
 
   return (
-    <input
-      className="h-12 w-full rounded-[8px] border border-slate-200 bg-[#F8FAFC] px-4 text-sm font-bold text-[#0F172A] outline-none placeholder:text-slate-400"
-      onChange={(event) => props.setData(event.target.value)}
-      placeholder={placeholder}
+    <LabeledPaymentInput
+      autoComplete={isPayPal ? "email" : "tel"}
+      inputMode={isPayPal ? "email" : "text"}
+      label={isPayPal ? "PayPal email" : "Mobile number or Revtag"}
+      maxLength={isPayPal ? 254 : 40}
+      onChange={props.setData}
+      placeholder={isPayPal ? "name@example.co.uk" : "+44 7700 900000 or @revtag"}
+      type={isPayPal ? "email" : "text"}
       value={props.data}
     />
   );
 }
 
-function LabeledPaymentInput({ label, onChange, placeholder, value }: { label: string; onChange: (value: string) => void; placeholder: string; value: string }) {
+function PaymentMethodPicker({ method, setMethod }: { method: string; setMethod: (value: string) => void }) {
+  return (
+    <div className="mb-4 grid gap-2" role="radiogroup" aria-label="Payout method">
+      {paymentOptions.map((option) => {
+        const Icon = option.icon;
+        const selected = method === option.name;
+        return (
+          <Button
+            aria-checked={selected}
+            className={`h-auto min-h-16 w-full justify-start whitespace-normal border px-3 py-3 text-left shadow-none ${selected ? "border-rose-500 bg-rose-50 text-slate-950 hover:bg-rose-50" : "border-slate-200 bg-white text-slate-950 hover:bg-slate-50"}`}
+            key={option.name}
+            onClick={() => setMethod(option.name)}
+            role="radio"
+            type="button"
+            variant="outline"
+          >
+            <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-[8px] ${selected ? "bg-rose-100 text-rose-600" : "bg-slate-100 text-slate-600"}`}>
+              <Icon size={20} />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-sm font-black">{option.name}</span>
+              <span className="mt-0.5 block text-xs font-bold text-slate-500">{option.detail}</span>
+            </span>
+            {selected && <CheckCircle2 className="text-rose-600" size={20} />}
+          </Button>
+        );
+      })}
+    </div>
+  );
+}
+
+function formatSortCode(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 6);
+  return digits.match(/.{1,2}/g)?.join("-") ?? "";
+}
+
+function hasValidPayoutDetails(method: string, holder: string, sortCode: string, account: string, data: string) {
+  if (method === "UK Bank Transfer") {
+    return holder.trim().length >= 2 && sortCode.replace(/\D/g, "").length === 6 && /^\d{8}$/.test(account);
+  }
+  if (method === "PayPal") return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.trim());
+  return data.trim().length >= 3;
+}
+
+function LabeledPaymentInput({ autoComplete, inputMode, label, maxLength, onChange, placeholder, type = "text", value }: { autoComplete?: string; inputMode?: "text" | "email" | "numeric" | "tel"; label: string; maxLength?: number; onChange: (value: string) => void; placeholder: string; type?: string; value: string }) {
   return (
     <label className="block">
       <span className="mb-1.5 block text-xs font-black text-[#475569]">{label}</span>
       <input
+        autoComplete={autoComplete}
         className="h-12 w-full rounded-[8px] border border-slate-200 bg-[#F8FAFC] px-4 text-sm font-bold text-[#0F172A] outline-none placeholder:text-slate-400"
+        inputMode={inputMode}
+        maxLength={maxLength}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
+        type={type}
         value={value}
       />
     </label>
@@ -882,7 +918,7 @@ function SupportScreen({ user }: { user: User }) {
             ["How long does the refund take?", "Confirmed refund details remain saved and processing. Because the payout goes through bank verification, payment network review, and account validation, the credit may take up to 15 working days."],
             ["I already paid. Where is my access?", "Your access is active inside this app. Sign in with the email used during registration and continue from the Tasks tab."],
             ["What should I do before disputing a charge?", "Open this Support tab first. We can confirm access, explain the daily audit cycle, verify refund status, and help with payout details."],
-            ["Can I update my payout method?", "Yes. Go to Wallet or Refund, choose PayPal, Faster Payments, Revolut, or UK Bank Transfer, then enter the requested details."],
+            ["Can I update my payout method?", "Yes. Go to Wallet or Refund, choose UK Bank Transfer, PayPal, or Revolut, then enter the requested details."],
           ].map(([question, answer]) => (
             <div className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-3" key={question}>
               <p className="text-sm font-black text-[#0F172A]">{question}</p>
@@ -938,8 +974,8 @@ function getSupportReply(question: string) {
     return "To complete a creator audit, watch the full video until it ends, rate the content, answer the questions, and submit a comment with at least 3 real words. The reward is added right after validation.";
   }
 
-  if (/(bank|sort code|account|paypal|revolut|debit card|payment)/.test(text)) {
-    return "You can register PayPal, Faster Payments, Revolut, or UK Bank Transfer. For Bank Transfer, enter your bank name, sort code, and account number before confirming.";
+  if (/(bank|sort code|account|paypal|revolut|payment)/.test(text)) {
+    return "You can register UK Bank Transfer, PayPal, or Revolut. Enter the account holder, sort code, and account number for bank transfers; your email for PayPal; or your mobile number or Revtag for Revolut.";
   }
 
   if (/(login|password|email|account|register)/.test(text)) {
