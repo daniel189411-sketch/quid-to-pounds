@@ -19,6 +19,7 @@ export function PresenceTracker() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (pathname === "/rastreio") return;
+    if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY) return;
 
     const visitorId = getVisitorId();
     const channel = supabase.channel("visitors-global", {
