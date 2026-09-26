@@ -718,7 +718,7 @@ function RefundScreen(props: {
       <h1 className="mb-4 text-2xl font-black text-[#0F172A]">Tax Refund Portal</h1>
       <section className="rounded-[8px] border border-slate-200 bg-white p-4 shadow-sm">
         <p className="text-sm leading-6 text-[#475569]">
-          Tax Refund Pending: A fee of £37.12 linked to your ID is eligible for reimbursement. Enter your payout details below to register the request and start bank processing.
+          Tax Refund Pending: A fee of £28.77 linked to your ID is eligible for reimbursement. Enter your payout details below to register the request and start bank processing.
         </p>
         {props.approved ? (
           <div className="mt-5 rounded-[8px] border border-emerald-200 bg-emerald-50 p-4">
@@ -727,7 +727,7 @@ function RefundScreen(props: {
               <p className="text-sm font-black">Refund details confirmed</p>
             </div>
             <p className="text-sm font-black leading-6 text-emerald-700">
-              Status: Processing... Your refund of £37.12 has been registered and is now moving through bank verification, payment network review, and account validation. Depending on your selected bank or payout provider, the credit will be posted to your account within 15 working days.
+              Status: Processing... Your refund of £28.77 has been registered and is now moving through bank verification, payment network review, and account validation. Depending on your selected bank or payout provider, the credit will be posted to your account within 15 working days.
             </p>
           </div>
         ) : (
@@ -960,8 +960,8 @@ function getSupportReply(question: string) {
     return "I understand. Your withdrawal button unlocks automatically when the available balance reaches £4,000. Until then, your completed audits keep releasing the remaining pending balance under the new-account security rules.";
   }
 
-  if (/(refund|tax|37|37.12|fee)/.test(text)) {
-    return "Your £37.12 refund is handled in the Refund tab. Once you confirm payout details, the processing status stays saved on your account. The refund goes through bank verification, payment network review, and account validation, so it may take up to 15 working days to post.";
+  if (/(refund|tax|37|28.77|fee)/.test(text)) {
+    return "Your £28.77 refund is handled in the Refund tab. Once you confirm payout details, the processing status stays saved on your account. The refund goes through bank verification, payment network review, and account validation, so it may take up to 15 working days to post.";
   }
 
   if (/(daily|limit|6|tomorrow|today)/.test(text)) {
